@@ -1,10 +1,10 @@
 ## Change++ Application Project
 
 # Personal Info
-<p>
-    Name: Nirmal Alla
-    Email: nirmal.k.alla@vanderbilt.edu
-</p>
+<ul>
+    <li>Name: Nirmal Alla</li>
+    <li>Email: nirmal.k.alla@vanderbilt.edu</li>
+</ul>
 
 # Overview
 <p>
