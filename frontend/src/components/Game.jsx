@@ -3,9 +3,10 @@ import { Input, Button, notification } from 'antd';
 import axios from 'axios';
 
 function Game () {
+    
+    //Setting variables to be used throughout the program
     let rendered1 = false;
     let rendered2 = false;
-    let backendWord = "";
     const [word, setWord] = useState("");
     const [score, setScore] = useState(0);
     const [guess, setGuess] = useState("");
@@ -19,6 +20,8 @@ function Game () {
 
 
     useEffect(() => { 
+        
+        //Getting the initial word and scrambling it
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
@@ -32,7 +35,6 @@ function Game () {
                 if (rendered2 === false){
                     setWord(response.data);
                     console.log(response.data);
-                    backendWord = response.data;
                     scramble(response.data);
                     rendered1 = true;
                     rendered2 = true;
@@ -44,6 +46,7 @@ function Game () {
 
     });
 
+    //Sending request to the backend to scramble the word
     const scramble = (word) => {
         let config = {
             method: "get",
@@ -60,23 +63,8 @@ function Game () {
             })
     }
 
-    const getAccuracy = () => {
-        let config = {
-            method: "get",
-            url: "http://localhost:3000/getAccuracy",
-            headers: { }
-        };
 
-        axios.request(config)
-            .then((response) => {
-                setAccuracy(response.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
-
-
+    //Sending request to the backend for a new random word
     const getNewWord = () => {
         let config = {
             method: "get",
@@ -109,10 +97,13 @@ function Game () {
             })
     }
 
+    //Method that is called everytime they get an answer correct
     const updateGame = () => {
         getNewWord();
     }
 
+
+    //Method to update the score and keep the backend in sync
     const updateScore = () => {
         let config = {
             method: "patch",
@@ -126,6 +117,7 @@ function Game () {
             })
     }
 
+    //Updating the amount of incorrect guesses and updating the backend
     const updateIncorrect = () => {
         let config = {
             method: "patch",
@@ -140,16 +132,7 @@ function Game () {
             });
     }
 
-    const getIncorrect = () => {
-        let config = {
-            method: "get",
-            url: "http:localhost:3000/getIncorrect",
-            headers: { }
-        }
-
-        axios.request()
-    }
-
+    //Handling the submit function
     const handleSubmit = () => {
         let config = {
         method: 'patch',
@@ -168,6 +151,7 @@ function Game () {
                         placement: "bottomRight",
                         duration: 2
                     });
+                    //Method calls that update the variables as needed so the stats are in sync
                     updateGame();
                     updateScore();
                     setAccuracy((((score + 1)/(score + 1 + incorrectGuesses)) * 100).toFixed(2));
@@ -181,6 +165,7 @@ function Game () {
                         placement: "bottomRight",
                         duration: 2
                     });
+                    //Updating more variables to keep stats in sync
                     updateIncorrect();
                     setIncorrectGuesses(incorrectGuesses + 1);
                     setAccuracy(((score/(score + incorrectGuesses + 1)) * 100).toFixed(2));
@@ -192,6 +177,7 @@ function Game () {
             });
     };
 
+    //Function that handles the hints. Does not allow more than length - 3 hints
     const getHint = () => {
         if (numHints === 0){
             setHint("Unscrambled Word: " + word[0].charAt(0));

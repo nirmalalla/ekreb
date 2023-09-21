@@ -19,15 +19,18 @@ app.patch('/score', (req, res) => {
     res.status(200).send(`${score}`);
 })
 
+//Endpoint to get the amout of incorrect guesses
 app.get("/getIncorrect", (req, res) => {
     res.send(incorrectGuesses);
 })
 
+//Endpoint to increment amount of incorrect guesses
 app.patch("/incorrect", (req, res) => {
     incorrectGuesses += parseInt(req.query.val);
     res.status(200).send(`${incorrectGuesses}`);
 })
 
+//Endpoint to get the random word from an API
 app.get('/getWord', async (req, res) => {
     try {
         const response = await axios.get("https://random-word-api.herokuapp.com/word")
@@ -44,16 +47,18 @@ app.get('/getWord', async (req, res) => {
     }
 })
 
+//Endpoint to save the word
 app.post("/saveWord", (req, res) => {
     currentWord = req.query.word;
     res.send("updated!");
 })
 
+//Endpoint to get the current word
 app.get("/getCurrentWord", (req, res) => {
     res.send(currentWord);
 })
 
-
+//Endpoint to check if the word is correct
 app.patch('/guessWord', (req, res) => {
     if(req.query.word === currentWord) {
         res.status(200).send('true');
@@ -62,11 +67,13 @@ app.patch('/guessWord', (req, res) => {
     }
 })
 
+//Endpoint to get accuracy
 app.get("/getAccuracy", (req, res) => {
     console.log("Accuracy from backend: " + ((score/(score + incorrectGuesses)) * 100));
     res.send((score/(score + incorrectGuesses)) * 100);
 })
 
+//Function to scramble the word
 function scrambleWord(word){
     word = word + "";
     const arr = word.split("");
@@ -85,6 +92,7 @@ function scrambleWord(word){
     return word;
 }
 
+//Endpoint to get the scrambled word
 app.get("/getScrambledWord", async (req, res) => {
     res.send(await scrambleWord(req.query.word));
 })
