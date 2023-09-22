@@ -11,7 +11,7 @@
     The objective of this game is to correctly guess the scrambled word. You will be provided with a scrambled word, and 
     you must unscramble the word and input it into the text box. If you are unable to unscramble the word, then you may get a 
     hint by pressing the "Get Hint" button, however, once you reach the last 3 letters, you will not be able to get any more
-    hints. For each word correctly guessed, you get one point added to the score. If you are really stuck, there is a skip word button as well, however, this button will increment your incorrect guesses, so use wisely. There is also some features that will allow you to "Stimulate Your Mind", "Lock In", and "Relax Your Mind".
+    hints. For each word correctly guessed, you get one point added to the score. If you are really stuck, there is a skip word button as well, however, this button will increment your incorrect guesses, so use wisely. There is also some features that will allow you to "Stimulate Your Mind", "Lock In", and "Relax Your Mind" (make sure you have your volume turned up).
 
 # How to Run
 <p>
