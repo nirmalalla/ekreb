@@ -208,6 +208,10 @@ function Game () {
         
     }
 
+    const rescramble = () => {
+        scramble(word);
+    }
+
 
 
     return <div className="card">
@@ -220,7 +224,8 @@ function Game () {
         <br /> <br />
         <Button type="primary" size="large" onClick={handleSubmit}>Submit</Button>&nbsp;&nbsp;
         <Button type="default" size="large" onClick={getHint}>Get Hint</Button>&nbsp;&nbsp;
-        <Button type="primary" size="large" onClick={handleSkip} danger="true">Skip Word</Button>
+        <Button type="primary" size="large" onClick={handleSkip} danger="true">Skip Word</Button>&nbsp;&nbsp;
+        <Button type="primary" size="large" onClick={rescramble}>Rescramble</Button>
         <br />
         <h3>Statistics</h3>
         <p> Score: {score} </p>

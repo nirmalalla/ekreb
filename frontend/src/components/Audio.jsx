@@ -23,6 +23,8 @@ function Audio() {
     const playButton3 = () => {
         setisPlaying3(!isPlaying3);
     }
+
+
     
     
     return (
@@ -35,6 +37,7 @@ function Audio() {
                 playStatus={
                     isPlaying1 ? Sound.status.PLAYING : Sound.status.STOPPED
                 }
+                onFinishedPlaying={playButton1}
                 playFromPosition={200000}
             />&nbsp;&nbsp;
             <Button type="default" size="large" onClick={playButton2}>{!isPlaying2 ? "Lock In" : "Stop"}</Button>
@@ -43,6 +46,7 @@ function Audio() {
                 playStatus={
                     isPlaying2 ? Sound.status.PLAYING : Sound.status.STOPPED
                 }
+                onFinishedPlaying={playButton2}
                 playFromPosition={0}
             />&nbsp;&nbsp;
             <Button type="default" size="large" onClick={playButton3}>{!isPlaying3 ? "Relax Your Mind" : "Stop"}</Button>
@@ -51,6 +55,7 @@ function Audio() {
                 playStatus={
                     isPlaying3 ? Sound.status.PLAYING : Sound.status.STOPPED
                 }
+                onFinishedPlaying={playButton3}
                 playFromPosition={3000}
             />
         </div>
