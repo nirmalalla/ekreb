@@ -208,7 +208,8 @@ function Game () {
             value={guess} />
         <br /> <br />
         <Button type="primary" size="large" onClick={handleSubmit}>Submit</Button>&nbsp;&nbsp;
-        <Button type="default" size="large" onClick={getHint}>Get Hint</Button>
+        <Button type="default" size="large" onClick={getHint}>Get Hint</Button>&nbsp;&nbsp;
+        <Button type="primary" size="large" onClick={updateGame} danger="true">Skip Word</Button>
         <br />
         <h3>Statistics</h3>
         <p> Score: {score} </p>
