@@ -209,6 +209,7 @@ function Game () {
         
     }
 
+    //Function for rescrambling the word
     const rescramble = () => {
         scramble(word);
     }
