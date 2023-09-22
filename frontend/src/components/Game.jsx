@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Input, Button, notification } from 'antd';
 import axios from 'axios';
 
+
 function Game () {
     
     //Setting variables to be used throughout the program
@@ -137,6 +138,8 @@ function Game () {
         updateIncorrect();
         setIncorrectGuesses(incorrectGuesses + 1);
         setAccuracy(((score/(score + incorrectGuesses + 1)) * 100).toFixed(2));
+        setHint("");
+        setGuess("");
     }
 
     //Handling the submit function
@@ -204,6 +207,7 @@ function Game () {
         }
         
     }
+
 
 
     return <div className="card">
