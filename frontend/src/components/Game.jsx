@@ -132,6 +132,13 @@ function Game () {
             });
     }
 
+    const handleSkip = () => {
+        updateGame();
+        updateIncorrect();
+        setIncorrectGuesses(incorrectGuesses + 1);
+        setAccuracy(((score/(score + incorrectGuesses + 1)) * 100).toFixed(2));
+    }
+
     //Handling the submit function
     const handleSubmit = () => {
         let config = {
@@ -209,7 +216,7 @@ function Game () {
         <br /> <br />
         <Button type="primary" size="large" onClick={handleSubmit}>Submit</Button>&nbsp;&nbsp;
         <Button type="default" size="large" onClick={getHint}>Get Hint</Button>&nbsp;&nbsp;
-        <Button type="primary" size="large" onClick={updateGame} danger="true">Skip Word</Button>
+        <Button type="primary" size="large" onClick={handleSkip} danger="true">Skip Word</Button>
         <br />
         <h3>Statistics</h3>
         <p> Score: {score} </p>
