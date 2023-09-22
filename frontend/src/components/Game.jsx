@@ -140,6 +140,7 @@ function Game () {
         setAccuracy(((score/(score + incorrectGuesses + 1)) * 100).toFixed(2));
         setHint("");
         setGuess("");
+        setNumHints(0);
     }
 
     //Handling the submit function
