@@ -16,7 +16,7 @@
 # How to Run
 <p>
     To run this program first you must download the ZIP file or clone the repository. After that, in your terminal, navigate to whichever 
-    path the folder was sent to and type in the following commands: "cd frontend", "npm run dev". After doing this, open a new terminal window and navigate to the file path of the folder once again. Once you have done this, type in the following commands: "cd backend", "node index.js". If both commands run correctly, you should be able to open up a browser and type in the URL "localhost:5173" and it should appear. If it is not running correctly, make sure you have installed the dependencies required (you can view dependencies in package.json)). Furthermore, if you want to see the unscrambled word, you can check the browser console, but technically that is cheating.
+    path the folder was sent to and type in the following commands: "cd frontend", "npm run dev". After doing this, open a new terminal window and navigate to the file path of the folder once again. Once you have done this, type in the following commands: "cd backend", "node index.js". If both commands run correctly, you should be able to open up a browser and type in the URL "localhost:5173" and it should appear. If it is not running correctly, make sure you have installed the dependencies required (you can view dependencies in package.json). Furthermore, if you want to see the unscrambled word, you can check the browser console, but technically that is cheating.
 </p>
 
 # Reflection
