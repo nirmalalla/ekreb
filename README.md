@@ -1,5 +1,3 @@
-## Change++ Application Project
-
 # Personal Info
 <ul>
     <li>Name: Nirmal Alla</li>
